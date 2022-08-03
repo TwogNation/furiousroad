@@ -5539,15 +5539,12 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.SetTimescale,
 		C3.Plugins.Audio.Acts.SetMasterVolume,
 		C3.Plugins.System.Acts.GoToLayout,
-		C3.Plugins.Spritefont2.Acts.MoveToTop,
-		C3.Plugins.Spritefont2.Acts.SetOpacity,
 		C3.Plugins.Browser.Cnds.IsPortraitLandscape,
-		C3.Plugins.TiledBg.Cnds.IsVisible,
-		C3.Behaviors.lunarray_LiteTween.Acts.Reverse,
 		C3.Plugins.Audio.Cnds.OnEnded,
 		C3.Plugins.Audio.Cnds.IsTagPlaying,
 		C3.Plugins.System.Cnds.OnLayoutEnd,
 		C3.Plugins.Browser.Cnds.SupportsFullscreen,
+		C3.Behaviors.lunarray_LiteTween.Acts.Reverse,
 		C3.Behaviors.lunarray_LiteTween.Cnds.OnReverseEnd,
 		C3.Plugins.Audio.Acts.SetSilent,
 		C3.Plugins.Dictionary.Acts.SetKey,
@@ -5580,6 +5577,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.lunarray_LiteTween.Acts.SetTweenedProperty,
 		C3.Behaviors.lunarray_LiteTween.Acts.SetDuration,
 		C3.Plugins.TiledBg.Acts.SetPosToObject,
+		C3.Plugins.TiledBg.Cnds.IsVisible,
 		C3.Plugins.Particles.Acts.SetAngleRandomiser,
 		C3.Plugins.Arr.Acts.SetSize,
 		C3.Plugins.System.Exps.layoutname,
@@ -6377,31 +6375,12 @@ self.C3_ExpressionFuncs = [
 		() => "Ricoschet",
 		() => "Wall",
 		() => -200,
-		() => "AddMoney",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(0);
-		},
-		() => "ShowMoney",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(1);
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(2);
-		},
 		() => -3,
 		() => "EnemyShot",
 		() => "ShotInPlayer",
 		() => "Rotator",
-		() => "Shop",
-		() => "LeaderBoard",
-		() => "Credits",
-		() => "OpenShop",
 		() => "FS_Sound",
 		() => "Button",
-		() => "SetButtons_Functions",
 		() => "EngineStart",
 		() => "DriveOut",
 		() => "Equip",
@@ -6410,6 +6389,9 @@ self.C3_ExpressionFuncs = [
 		() => "0,-100",
 		() => -160,
 		() => -80,
+		() => "Shop",
+		() => "LeaderBoard",
+		() => "SetButtons_Functions",
 		() => "Sound",
 		p => {
 			const n0 = p._GetNode(0);
@@ -6470,6 +6452,10 @@ self.C3_ExpressionFuncs = [
 			return () => (f0("Ground") + 200);
 		},
 		() => "RespawnObt",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(0);
+		},
 		() => "Default",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -6532,6 +6518,8 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => unaryminus(f0(1));
 		},
+		() => "AddMoney",
+		() => "ShowMoney",
 		() => "$10",
 		p => {
 			const n0 = p._GetNode(0);
@@ -6629,6 +6617,7 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => and("$ ", n0.ExpObject("Reward"));
 		},
+		() => "Credits",
 		() => 90,
 		() => 80,
 		() => 16,
@@ -6861,21 +6850,6 @@ self.C3_ExpressionFuncs = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => and(and(n0.ExpObject(6), ": "), v1.GetValue());
 		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			const v2 = p._GetNode(2).GetVar();
-			return () => (f0(n1.ExpObject("Reward")) - v2.GetValue());
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			return () => f0(n1.ExpObject("Reward"));
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			return () => and("$ ", Math.round(n0.ExpBehavior()));
-		},
 		() => "ShareButtons",
 		p => {
 			const n0 = p._GetNode(0);
@@ -7052,7 +7026,8 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => and("G2_Price", f0());
 		},
-		() => "GunActivation"
+		() => "GunActivation",
+		() => "OpenShop"
 ];
 
 
