@@ -10,11 +10,11 @@ function postText(value){
 
 const scriptsInEvents = {
 
-		async _win_score_Event8_Act6(runtime, localVars)
-		{
-			postText(runtime.globalVars.postMsg)
-			
-		}
+	async _win_score_Event8_Act6(runtime, localVars)
+	{
+		postText(runtime.globalVars.postMsg)
+		
+	}
 
 };
 
